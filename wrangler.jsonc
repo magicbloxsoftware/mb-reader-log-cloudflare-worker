@@ -1,0 +1,27 @@
+/**
+ * For more details on how to configure Wrangler, refer to:
+ * https://developers.cloudflare.com/workers/wrangler/configuration/
+ */
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "mb-reader-log-cloudflare-worker",
+	"main": "src/index.ts",
+	"compatibility_date": "2025-03-03",
+    "d1_databases": [
+        {
+          "binding": "DB",
+          "database_name": "mb-reader-log",
+          "database_id": "0d970ee8-0ae8-4d5d-bb79-3d6df8de6b2b"
+        }
+    ],
+    "secrets_store_secrets": [
+        {
+            "store_id": "9532c84e69c849a3b1200cb55fc31d3d",
+            "binding": "SECRET",
+            "secret_name": "authcode"
+        }
+    ],
+	"observability": {
+		"enabled": true
+	}
+}
